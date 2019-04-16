@@ -65,11 +65,11 @@ def send():
 def pals():
    
 
-    results = db.session.query(Vital.age,Vital.height,Vital.weight).all()
+    results = db.session.query(Vital.age,Vital.height,Vital.weight).first()
 
-    age = [result[0] for result in results]
-    height = [result[1] for result in results]
-    weight = [result[2] for result in results]
+    age = results[0]
+    height = results[1]
+    weight = results[2]
 
     trace = {
         "age": age,
