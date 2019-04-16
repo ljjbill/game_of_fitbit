@@ -40,6 +40,7 @@ from datetime import timedelta
 app = Flask (__name__)
 CORS(app)
 
+"""
 # Database connection
 app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///database/db.sqlite"
 db = SQLAlchemy(app)
@@ -48,9 +49,11 @@ db = SQLAlchemy(app)
 Base = automap_base()
 #reflect the tables
 Base.prepare(db.engine, reflect=True)
+"""
 
 # Save references to each table
 """study = Base.classes.study""" # EXAMPLE
+
 
 # creates a route for the flask front end
 @app.route('/')
@@ -62,7 +65,7 @@ def home():
 """ EXAMPLE
 @app.route('/api/pie_chart', methods=['GET'])
 def get_medals_percent():
-   """Returns Country list with medals percent of all time"""
+   #Returns Country list with medals percent of all time
    athlete_events = Base.classes.athlete_events
    noc_regions = Base.classes.noc
 
