@@ -1,3 +1,57 @@
-#lifting {
-    
+.parallax {
+    background-image: url("https://boygeniusreport.files.wordpress.com/2019/03/fitbit_inspire_core_inbox_cropped-cropped.jpg?quality=98&strip=all");
+    min-height: 400px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 35%;
+        width: 100%;
+        text-align: center;
+        color: black;
+        transform: translateY(-90%);
+    }
+
+    .caption span.border {
+        background-color:#104e8b;
+        color: White;
+        padding: 15px;
+        font-size: 28px;
+        letter-spacing: 5px;
+    }
+
+    /* .caption span.border2 {
+        background-color: #111;
+        color: black;
+        padding: 10px;
+        font-size: 20px;
+        letter-spacing: 2px;
+    } */
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+  
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: none; 
+        border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #104e8b; 
+        border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+    }
