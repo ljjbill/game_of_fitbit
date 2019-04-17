@@ -40,11 +40,11 @@ from datetime import timedelta
 app = Flask (__name__)
 CORS(app)
 
-"""
-# Database connection
-app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///database/db.sqlite"
-db = SQLAlchemy(app)
 
+# Database connection
+app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///db/vital.sqlite"
+db = SQLAlchemy(app)
+"""
 # reflect an existing database into a new model
 Base = automap_base()
 #reflect the tables
@@ -60,6 +60,66 @@ Base.prepare(db.engine, reflect=True)
 def home():
    """Return the homepage"""
    return render_template('index.html')
+
+@app.route('/form')
+def open_form():
+   """go to form page"""
+   return render_template('form.html')
+
+class Vital(db.Model):
+    __tablename__ = 'vital'
+
+    id = db.Column(db.Integer, primary_key=True)
+    age = db.Column(db.Integer)
+    height = db.Column(db.Integer)
+    weight = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '<Vital %r>' % (self.name)
+
+
+@app.before_first_request
+def setup():
+    # Recreate database each time for demo
+    db.drop_all()
+    db.create_all()
+
+
+# Query the database and send the jsonified results
+@app.route("/send", methods=["GET", "POST"])
+def send():
+    db.drop_all()
+    db.create_all()
+    if request.method == "POST":
+        age = request.form["userAge"]
+        height = request.form["userHeight"]
+        weight = request.form["userWeight"]
+        vital = Vital(age=age, height=height, weight=weight)
+        db.session.add(vital)
+        db.session.commit()
+        return redirect("/api/vitals", code=302)
+
+    return render_template("form.html")
+
+
+# create route that returns data for plotting
+@app.route("/api/vitals")
+def pals():
+   
+
+    results = db.session.query(Vital.age,Vital.height,Vital.weight).first()
+
+    age = results[0]
+    height = results[1]
+    weight = results[2]
+
+    trace = {
+        "age": age,
+        "height": height,
+        "weight": weight
+    }
+
+    return jsonify(trace)
 
 
 """ EXAMPLE
