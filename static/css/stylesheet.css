@@ -1,5 +1,5 @@
 .parallax {
-    background-image: url("https://boygeniusreport.files.wordpress.com/2019/03/fitbit_inspire_core_inbox_cropped-cropped.jpg?quality=98&strip=all");
+    background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Fitness-Wallpaper-1080p-Hd-PIC-WPE006495.jpg");
     min-height: 400px; 
     background-attachment: fixed;
     background-position: center;
@@ -11,20 +11,22 @@
     .caption {
         position: absolute;
         left: 0;
-        top: 35%;
+        top: 30%;
         width: 100%;
         text-align: center;
         color: black;
         transform: translateY(-90%);
+        font-size: 40px;
+        opacity: 1 !important;
     }
 
-    .caption span.border {
+    /* .caption span.border {
         background-color:#104e8b;
         color: White;
         padding: 15px;
         font-size: 28px;
         letter-spacing: 5px;
-    }
+    } */
 
     /* .caption span.border2 {
         background-color: #111;
@@ -33,6 +35,16 @@
         font-size: 20px;
         letter-spacing: 2px;
     } */
+.parallax2 {
+    background-image: url("https://www.windowscentral.com/sites/wpcentral.com/files/styles/xlarge_wm_brw/public/field/image/2016/10/fitbit-charge2-w10m.jpg?itok=vz-NwdId");
+    min-height: 300px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    /* filter: alpha(opacity=40); */
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -55,3 +67,9 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #b30000; 
     }
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}

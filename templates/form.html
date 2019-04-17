@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    
   <!------------------------------------------------------------------------------------------>
   <!---------------------------------NAVIGATION BAR------------------------------------------->
   <!------------------------------------------------------------------------------------------>
@@ -43,29 +44,35 @@
           </ul>
         </div>
     </nav>
+
+    <div class="parallax2">
+            <div class="caption">
+                <h1 class="text-primary display-1"><strong><ion-icon name="paper"></ion-icon> Vitals Form</strong></h1>
+            </div>
+    </div>
   <!------------------------------------------------------------------------------------------>
   <!---------------------------------Form--------------------------------------------->
   <!------------------------------------------------------------------------------------------>
 
     <div class="container">
-        <div class="jumbotron" style="text-align: center">
-            <h1>Game of Fitbit</h1>
-            <!-- <a href="/" class="btn btn-primary" role="button">View Chart</a> -->
-        </div>
         <div class="row">
             <div class="col-md-offset-2 col-md-8">
             <h2>Enter your vital below!</h2>
             <form method="POST" action="/send" role="form", name="petform">
                 <div class="form-group">
-                <label for="inputAge">Age</label>
+                <label for="inputAge">Total Steps</label>
                 <input type="text" class="form-control" id="inputAge" name="userAge" placeholder="Age">
                 </div>
                 <div class="form-group">
-                <label for="inputHeight">Height</label>
+                <label for="inputHeight">Distance</label>
                 <input type="text" class="form-control" id="inputHeight" name="userHeight" placeholder="Height">
                 </div>
                 <div class="form-group">
-                <label for="inputWeight">Weight</label>
+                <label for="inputWeight">Logged Activities Distance</label>
+                <input type="text" class="form-control" id="inputWeight" name="userWeight" placeholder="Weight">
+                </div>
+                <div class="form-group">
+                <label for="inputWeight">Very Active Distance</label>
                 <input type="text" class="form-control" id="inputWeight" name="userWeight" placeholder="Weight">
                 </div>
                 <input type="submit" value="submit" class="btn btn-primary">
@@ -74,5 +81,6 @@
         </div>
     </div>
 
+    <div class="parallax2"></div>
 </body>
 </html>
