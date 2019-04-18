@@ -73,6 +73,7 @@ class Vital(db.Model):
     age = db.Column(db.Integer)
     height = db.Column(db.Integer)
     weight = db.Column(db.Integer)
+    test = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Vital %r>' % (self.name)
@@ -94,7 +95,8 @@ def send():
         age = request.form["userAge"]
         height = request.form["userHeight"]
         weight = request.form["userWeight"]
-        vital = Vital(age=age, height=height, weight=weight)
+        test = request.form["userDistance"]
+        vital = Vital(age=age, height=height, weight=weight, test=test)
         db.session.add(vital)
         db.session.commit()
         return redirect("/api/vitals", code=302)
@@ -107,16 +109,18 @@ def send():
 def pals():
    
 
-    results = db.session.query(Vital.age,Vital.height,Vital.weight).first()
+    results = db.session.query(Vital.age,Vital.height,Vital.weight, Vital.test).first()
 
     age = results[0]
     height = results[1]
     weight = results[2]
+    test = results[3]
 
     trace = {
         "age": age,
         "height": height,
-        "weight": weight
+        "weight": weight,
+        "test": test
     }
 
     return jsonify(trace)
