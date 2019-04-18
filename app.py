@@ -66,110 +66,91 @@ def open_form():
    """go to form page"""
    return render_template('form.html')
 
-class Vital(db.Model):
-    __tablename__ = 'vital'
+# class Vital(db.Model):
+#     __tablename__ = 'vital'
 
-    id = db.Column(db.Integer, primary_key=True)
-    age = db.Column(db.Integer)
-    height = db.Column(db.Integer)
-    weight = db.Column(db.Integer)
-    test = db.Column(db.Integer)
+#     id = db.Column(db.Integer, primary_key=True)
+#     steps = db.Column(db.Integer)
+#     tra_dist = db.Column(db.Integer)
+#     log_act_dist = db.Column(db.Integer)
+#     very_act_dist = db.Column(db.Integer)
 
-    def __repr__(self):
-        return '<Vital %r>' % (self.name)
+#     def __repr__(self):
+#         return '<Vital %r>' % (self.name)
 
 
-@app.before_first_request
-def setup():
-    # Recreate database each time for demo
-    db.drop_all()
-    db.create_all()
+# @app.before_first_request
+# def setup():
+#     # Recreate database each time for demo
+#     db.drop_all()
+#     db.create_all()
 
 
 # Query the database and send the jsonified results
 @app.route("/send", methods=["GET", "POST"])
 def send():
-    db.drop_all()
-    db.create_all()
     if request.method == "POST":
-        age = request.form["userAge"]
-        height = request.form["userHeight"]
-        weight = request.form["userWeight"]
-        test = request.form["userDistance"]
-        vital = Vital(age=age, height=height, weight=weight, test=test)
-        db.session.add(vital)
-        db.session.commit()
-        return redirect("/api/vitals", code=302)
+        steps = request.form["userSteps"]
+        tra_dist = request.form["TrackerDistance"]
+        log_act_dist = request.form["LogActDist"]
+        very_act_dist = request.form["VeryActDist"]
+        mod_act_dist = request.form["ModActDist"]
+        light_act_dist = request.form["LightActDist"]
+        seden_act_dist = request.form["SedenActDist"]
+        very_act_min = request.form["VeryActMin"]
+        fair_act_min = request.form["FairActMin"]
+        light_act_min = request.form["LightActMin"]
+        seden_act_min = request.form["SedenMin"]
+        
 
-    return render_template("form.html")
+        trace = {
+        "steps": int(steps),
+        "tra_dist": int(tra_dist),
+        "log_act_dist": int(log_act_dist),
+        "very_act_dist": int(very_act_dist),
+        "mod_act_dist": int(mod_act_dist),
+        "light_act_dist": int(light_act_dist),
+        "seden_act_dist": int(seden_act_dist),
+        "very_act_min": int(very_act_min),
+        "fair_act_min": int(fair_act_min),
+        "light_act_min": int(light_act_min),
+        "seden_act_min": int(seden_act_min)
+        }
+
+        results = jsonify(trace)
+        
+        return results
+      #   vital = Vital(steps=steps, tra_dist=tra_dist, log_act_dist=log_act_dist, very_act_dist=very_act_dist)
+      #   db.session.add(vital)
+      #   db.session.commit()
+      #   return redirect("/api/vitals", code=302)
+
+   #  return render_template("form.html")
 
 
 # create route that returns data for plotting
-@app.route("/api/vitals")
-def pals():
+# @app.route("/api/vitals")
+# def pals():
    
 
-    results = db.session.query(Vital.age,Vital.height,Vital.weight, Vital.test).first()
+#     results = db.session.query(Vital.steps,Vital.tra_dist,Vital.log_act_dist, Vital.very_act_dist).first()
 
-    age = results[0]
-    height = results[1]
-    weight = results[2]
-    test = results[3]
+#     steps = results[0]
+#     tra_dist = results[1]
+#     log_act_dist = results[2]
+#     very_act_dist = results[3]
 
-    trace = {
-        "age": age,
-        "height": height,
-        "weight": weight,
-        "test": test
-    }
+#     trace = {
+#         "steps": steps,
+#         "tra_dist": tra_dist,
+#         "log_act_dist": log_act_dist,
+#         "very_act_dist": very_act_dist
+#     }
 
-    return jsonify(trace)
+#     return jsonify(trace)
 
 
-""" EXAMPLE
-@app.route('/api/pie_chart', methods=['GET'])
-def get_medals_percent():
-   #Returns Country list with medals percent of all time
-   athlete_events = Base.classes.athlete_events
-   noc_regions = Base.classes.noc
 
-   sel = [
-    noc_regions.region,
-    athlete_events.Medal
-   ]
-
-   query = db.session.query(*sel)\
-         .filter(athlete_events.NOC == noc_regions.NOC)\
-         .filter(athlete_events.Season == 'Summer')\
-         .filter(athlete_events.Medal.isnot(None))\
-         .all()
-
-   df = pd.DataFrame(query)
-
-   df = df.groupby(['region'])
-
-   table = df["Medal"].count().reset_index()
-   Total = table['Medal'].sum()
-
-   table['measure'] = round((table['Medal'] / Total), 10)
-
-   name_dict = {
-      'region': 'country'
-   }
-
-   column_list = [
-      'country',
-      'measure'
-   ]
-
-   table = table.rename(columns=name_dict)
-   table = table[table.columns.intersection(column_list)]
-
-   table = table.sort_values(by=['measure'], ascending=False)
-
-   data = table.to_json(orient='records')
-   return data
-"""
 
 if __name__ == "__main__":
     app.run(debug = True)
