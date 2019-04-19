@@ -49,7 +49,7 @@
             
     </div>
     <div class="caption">
-        <div class="row justify-content-center">
+        <div class="justify-content-center">
         <h1 class="text-dark bg-white display-1 rounded-circle shadow-lg"><strong><ion-icon name="paper"></ion-icon> Vitals Form</strong></h1>            
         </div>
     </div>
@@ -63,11 +63,22 @@
             <h2 class="bg-dark text-white rounded text-center">Enter your Fitbit info below!</h2>
             <form method="POST" action="/send" role="form", name="petform">
                 <div class="form-group">
-                <label for="inputSteps" data-toggle="tooltip" data-placement="top" title="Only for one day"><strong><ion-icon name="walk"></ion-icon> Total Steps</strong></label>
-                <div class="alert alert-info" role="alert">
-                        A simple info alert—check it out!
-                </div>
-                <input type="text" class="form-control" id="inputSteps" name="userSteps" placeholder="Steps">
+                    <div class="row">
+                        <div class="col">
+                            <label for="inputSteps" data-toggle="tooltip" data-placement="top" title="Only for one day"><strong><ion-icon name="walk"></ion-icon> Total Steps  </strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-dark text-white" type="button" data-toggle="collapse" data-target="#test" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help-circle-outline"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="test">
+                            <div class="card card-body alert-warning">
+                                <strong>Total Steps</strong><hr>Please enter the estimated total number of steps taken in ONE day.
+                            </div>
+                    </div>
+                    <input type="text" class="form-control" id="inputSteps" name="userSteps" placeholder="Steps">
                 </div>
                 <div class="form-group">
                 <label for="inputTackerdist"><strong><ion-icon name="paper-plane"></ion-icon> Distance</strong></label>      
