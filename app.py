@@ -35,6 +35,17 @@ import datetime
 from datetime import timedelta
 
 #################################################
+# IMPORT DEPENDENCIES FOR Machine Learning
+#################################################
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score
+from scipy import stats
+import numpy as np
+import xgboost as xgb
+import math
+
+#################################################
 # Flask Setup
 #################################################
 app = Flask (__name__)
@@ -54,6 +65,22 @@ Base.prepare(db.engine, reflect=True)
 # Save references to each table
 """study = Base.classes.study""" # EXAMPLE
 
+def predict_calories(model_name, features):
+    # model_name: name of the trained xgboost model, e.g.: 'calorie_predictor.model'
+    # features: 1 x 11 features as numpy array, e.g.: np.array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]) where the numbers are feature values
+
+    # Loads the model saved in model_name. Runs the model using given feature vector. Returns the predicted calories.
+
+    # loading model
+    mod = xgb.Booster({'nthread':4})
+    mod.load_model(model_name)
+
+    assert np.shape(features)[0] == 11 # make sure number of features is correct
+
+    features = features[np.newaxis, :]
+    feat = xgb.DMatrix(features)
+
+    return mod.predict(feat)
 
 # creates a route for the flask front end
 @app.route('/')
@@ -103,23 +130,38 @@ def send():
         seden_act_min = request.form["SedenMin"]
         
 
-        trace = {
-        "steps": int(steps),
-        "tra_dist": int(tra_dist),
-        "log_act_dist": int(log_act_dist),
-        "very_act_dist": int(very_act_dist),
-        "mod_act_dist": int(mod_act_dist),
-        "light_act_dist": int(light_act_dist),
-        "seden_act_dist": int(seden_act_dist),
-        "very_act_min": int(very_act_min),
-        "fair_act_min": int(fair_act_min),
-        "light_act_min": int(light_act_min),
-        "seden_act_min": int(seden_act_min)
-        }
+      #   trace = {
+      #   "steps": int(steps),
+      #   "tra_dist": int(tra_dist),
+      #   "log_act_dist": int(log_act_dist),
+      #   "very_act_dist": int(very_act_dist),
+      #   "mod_act_dist": int(mod_act_dist),
+      #   "light_act_dist": int(light_act_dist),
+      #   "seden_act_dist": int(seden_act_dist),
+      #   "very_act_min": int(very_act_min),
+      #   "fair_act_min": int(fair_act_min),
+      #   "light_act_min": int(light_act_min),
+      #   "seden_act_min": int(seden_act_min)
+      #   }
 
-        results = jsonify(trace)
-        
-        return results
+      #   results = jsonify(trace)
+        results = np.array([
+           int(steps),
+           int(tra_dist),
+           int(log_act_dist),
+           int(very_act_dist),
+           int(mod_act_dist),
+           int(light_act_dist),
+           int(seden_act_dist),
+           int(very_act_min),
+           int(fair_act_min),
+           int(light_act_min),
+           int(seden_act_min)
+           ])
+        model_name = 'calorie_predictor.model'
+        pred_calories = predict_calories(model_name,results)
+        output = 'Predicted calories burned {}'.format(pred_calories)
+        return jsonify(output)
       #   vital = Vital(steps=steps, tra_dist=tra_dist, log_act_dist=log_act_dist, very_act_dist=very_act_dist)
       #   db.session.add(vital)
       #   db.session.commit()

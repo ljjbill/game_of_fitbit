@@ -39,7 +39,7 @@
                 <a class="nav-link" href="#"><ion-icon name="paper"></ion-icon> Form<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/ljjbill/game_of_fitbit" target="_blank"><ion-icon name="cloud-outline"></ion-icon> GitHub Repo</a>
+              <a class="nav-link" href="https://github.com/ljjbill/game_of_fitbit" target="_blank"><ion-icon name="logo-github"></ion-icon> GitHub Repo</a>
             </li>
           </ul>
         </div>
@@ -49,68 +49,75 @@
             
     </div>
     <div class="caption">
-        <h1 class="text-black display-1"><strong><ion-icon name="paper"></ion-icon> Vitals Form</strong></h1>
+        <div class="row justify-content-center">
+        <h1 class="text-dark bg-white display-1 rounded-circle shadow-lg"><strong><ion-icon name="paper"></ion-icon> Vitals Form</strong></h1>            
+        </div>
     </div>
   <!------------------------------------------------------------------------------------------>
   <!---------------------------------Form--------------------------------------------->
   <!------------------------------------------------------------------------------------------>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8">
-            <h2>Enter your Fitbit info below!</h2>
+<div class="parallax3">
+    <div class="container text-white">
+        <div class="row justify-content-center">
+            <div class="col-md-7  bg-dark rounded shadow-lg">
+            <h2 class="bg-dark text-white rounded text-center">Enter your Fitbit info below!</h2>
             <form method="POST" action="/send" role="form", name="petform">
                 <div class="form-group">
-                <label for="inputSteps">Total Steps</label>
+                <label for="inputSteps" data-toggle="tooltip" data-placement="top" title="Only for one day"><strong><ion-icon name="walk"></ion-icon> Total Steps</strong></label>
+                <div class="alert alert-info" role="alert">
+                        A simple info alert—check it out!
+                </div>
                 <input type="text" class="form-control" id="inputSteps" name="userSteps" placeholder="Steps">
                 </div>
                 <div class="form-group">
-                <label for="inputTackerdist">Distance</label>
+                <label for="inputTackerdist"><strong><ion-icon name="paper-plane"></ion-icon> Distance</strong></label>      
                 <input type="text" class="form-control" id="inputTackerdist" name="TrackerDistance" placeholder="Distance">
                 </div>
                 <div class="form-group">
-                <label for="inputLoggedDist">Logged Activities Distance</label>
+                <label for="inputLoggedDist"><strong><ion-icon name="football"></ion-icon> Logged Activities Distance</strong></label>
                 <input type="text" class="form-control" id="inputLoggedDist" name="LogActDist" placeholder="Acitivity Distance">
                 </div>
                 <div class="form-group">
-                <label for="inputVeryActDist">Very Active Distance</label>
+                <label for="inputVeryActDist"><strong><ion-icon name="jet"></ion-icon> Very Active Distance</strong></label>
                 <input type="text" class="form-control" id="inputVeryActDist" name="VeryActDist" placeholder="Very Active">
                 </div>
                 <div class="form-group">
-                <label for="inputModDist">Moderate Active Distance</label>
+                <label for="inputModDist"><strong><ion-icon name="send"></ion-icon> Moderate Active Distance</strong></label>
                 <input type="text" class="form-control" id="inputModDist" name="ModActDist" placeholder="Moderate Active">
                 </div>
                 <div class="form-group">
-                <label for="inputLightDist">Light Active Distance</label>
+                <label for="inputLightDist"><strong><ion-icon name="bicycle"></ion-icon> Light Active Distance</strong></label>
                 <input type="text" class="form-control" id="inputLightDist" name="LightActDist" placeholder="Light Active">
                 </div>
                 <div class="form-group">
-                <label for="inputSeden">Sedentary Active Distance</label>
+                <label for="inputSeden"><strong><ion-icon name="man"></ion-icon> Sedentary Active Distance</strong></label>
                 <input type="text" class="form-control" id="inputSeden" name="SedenActDist" placeholder="Sedentary Active">
                 </div>
                 <div class="form-group">
-                <label for="inputVeryActMin">Very Active Minutes</label>
+                <label for="inputVeryActMin"><strong><ion-icon name="speedometer"></ion-icon> Very Active Minutes</strong></label>
                 <input type="text" class="form-control" id="inputVeryActMin" name="VeryActMin" placeholder="Very Active Minutes">
                 </div>
                 <div class="form-group">
-                <label for="inputFairActMin">Fairly Active Minutes</label>
+                <label for="inputFairActMin"><strong><ion-icon name="stopwatch"></ion-icon> Fairly Active Minutes</strong></label>
                 <input type="text" class="form-control" id="inputFairActMin" name="FairActMin" placeholder="Fairly Active Minutes">
                 </div>
                 <div class="form-group">
-                <label for="inputLightActMin">Lightly Active Minutes</label>
+                <label for="inputLightActMin"><strong><ion-icon name="timer"></ion-icon> Lightly Active Minutes</strong></label>
                 <input type="text" class="form-control" id="inputLightActMin" name="LightActMin" placeholder="Light Active Minutes">
                 </div>
                 <div class="form-group">
-                <label for="inputSedenMin">Sedentary Minutes</label>
+                <label for="inputSedenMin"><strong><ion-icon name="time"></ion-icon> Sedentary Minutes</strong></label>
                 <input type="text" class="form-control" id="inputSedenMin" name="SedenMin" placeholder="Sedentary Minutes">
                 </div>
               
-                <input type="submit" value="submit" class="btn btn-primary">
+                <button type="submit" value="submit" class="btn btn-light"><ion-icon name="play"></ion-icon> Analyse!</button>
             </form>
+            <br><br>
             </div>
         </div>
     </div>
+</div> 
 
-    <div class="parallax2"></div>
+    <div class="parallax3"></div>
 </body>
 </html>

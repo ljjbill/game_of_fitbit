@@ -1,3 +1,4 @@
+
 .parallax {
     background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Fitness-Wallpaper-1080p-Hd-PIC-WPE006495.jpg");
     min-height: 400px; 
@@ -42,9 +43,21 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.4;
+    /* opacity: 0.5; */
     /* filter: alpha(opacity=40); */
 }
+
+.parallax3 {
+    background-image: url("https://www.windowscentral.com/sites/wpcentral.com/files/styles/xlarge_wm_brw/public/field/image/2016/10/fitbit-charge2-w10m.jpg?itok=vz-NwdId");
+    min-height: 300px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.4; */
+    /* filter: alpha(opacity=40); */
+}
+
 
 /* width */
 ::-webkit-scrollbar {
