@@ -57,7 +57,7 @@
                             </button>
                         </div>
                     <div class="modal-body">
-                        <p>{{ output }}</p>
+                        <p id="calouput">{{ output }}</p>
         
                     </div>
                 </div>
@@ -316,20 +316,21 @@
                 <button type="submit" value="submit" class="btn btn-light"><ion-icon name="play"></ion-icon> Analyse!</button>
             </form>
             <br><br>
-            <!-- <h1 id="output">{{ output }}</h1> -->
-            
+        
             <script type="text/javascript">
                 $(document).ready(function(){
-                    $("#output").modal('show');
+                    var empt = document.getElementById('calouput').innerHTML;
+                    if (empt == null || empt == "") {}
+                    else {  $("#output").modal('show');} 
                 });
             </script>
-            <script>
-              var heading = $("#output");
+            <!-- <script>
+              var heading = $("#output").modal('show');
               setInterval(function() {
                 if (heading.style.display == "block") { heading.style.display = "none"; }
                 else if (heading.style.display == "none") { heading.style.display = "block"; }
               }, 1000);
-            </script>
+            </script> -->
             </div>
         </div>
     </div>
