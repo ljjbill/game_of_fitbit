@@ -128,28 +128,26 @@ def send():
         fair_act_min = request.form["FairActMin"]
         light_act_min = request.form["LightActMin"]
         seden_act_min = request.form["SedenMin"]
-
-        results = np.array([
-           int(steps),
-           int(tra_dist),
-           int(log_act_dist),
-           int(very_act_dist),
-           int(mod_act_dist),
-           int(light_act_dist),
-           int(seden_act_dist),
-           int(very_act_min),
-           int(fair_act_min),
-           int(light_act_min),
-           int(seden_act_min)
-           ])
-        model_name = 'calorie_predictor.model'
-        pred_calories = predict_calories(model_name,results)
-        output = 'Predicted calories burned {}'.format(pred_calories)
-      #   return jsonify(output)
-      #   vital = Vital(steps=steps, tra_dist=tra_dist, log_act_dist=log_act_dist, very_act_dist=very_act_dist)
-      #   db.session.add(vital)
-      #   db.session.commit()
-      #   return redirect("/api/vitals", code=302)
+        
+        try:
+         results = np.array([
+            int(steps),
+            int(tra_dist),
+            int(log_act_dist),
+            int(very_act_dist),
+            int(mod_act_dist),
+            int(light_act_dist),
+            int(seden_act_dist),
+            int(very_act_min),
+            int(fair_act_min),
+            int(light_act_min),
+            int(seden_act_min)
+            ])
+         model_name = 'calorie_predictor.model'
+         pred_calories = predict_calories(model_name,results)
+         output = 'Predicted calories burned {}'.format(pred_calories)
+        except:
+           output = 'Error: incorrect input!'
 
         return render_template("form.html", output=output)
 

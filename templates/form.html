@@ -63,6 +63,22 @@
                 </div>
             </div>
     </div>
+    <div id="output2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Wrong Input!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <div class="modal-body content-center">
+                        <img src="https://thumbs.gfycat.com/ObviousRepentantBangeltiger-size_restricted.gif" alt="error image" class="img-thumbnail">
+                        <p>Please make sure to fill out all available fields, and make sure you only input numbers.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
     <div class="parallax2">
             
     </div>
@@ -321,6 +337,7 @@
                 $(document).ready(function(){
                     var empt = document.getElementById('calouput').innerHTML;
                     if (empt == null || empt == "") {}
+                    else if (empt == "Error: incorrect input!") {  $("#output2").modal('show');}
                     else {  $("#output").modal('show');} 
                 });
             </script>
