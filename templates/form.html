@@ -47,7 +47,22 @@
           </ul>
         </div>
     </nav>
-
+    <div id="output" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Model Results</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <div class="modal-body">
+                        <p>{{ output }}</p>
+        
+                    </div>
+                </div>
+            </div>
+    </div>
     <div class="parallax2">
             
     </div>
@@ -301,6 +316,20 @@
                 <button type="submit" value="submit" class="btn btn-light"><ion-icon name="play"></ion-icon> Analyse!</button>
             </form>
             <br><br>
+            <!-- <h1 id="output">{{ output }}</h1> -->
+            
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#output").modal('show');
+                });
+            </script>
+            <script>
+              var heading = $("#output");
+              setInterval(function() {
+                if (heading.style.display == "block") { heading.style.display = "none"; }
+                else if (heading.style.display == "none") { heading.style.display = "block"; }
+              }, 1000);
+            </script>
             </div>
         </div>
     </div>

@@ -128,23 +128,7 @@ def send():
         fair_act_min = request.form["FairActMin"]
         light_act_min = request.form["LightActMin"]
         seden_act_min = request.form["SedenMin"]
-        
 
-      #   trace = {
-      #   "steps": int(steps),
-      #   "tra_dist": int(tra_dist),
-      #   "log_act_dist": int(log_act_dist),
-      #   "very_act_dist": int(very_act_dist),
-      #   "mod_act_dist": int(mod_act_dist),
-      #   "light_act_dist": int(light_act_dist),
-      #   "seden_act_dist": int(seden_act_dist),
-      #   "very_act_min": int(very_act_min),
-      #   "fair_act_min": int(fair_act_min),
-      #   "light_act_min": int(light_act_min),
-      #   "seden_act_min": int(seden_act_min)
-      #   }
-
-      #   results = jsonify(trace)
         results = np.array([
            int(steps),
            int(tra_dist),
@@ -161,13 +145,13 @@ def send():
         model_name = 'calorie_predictor.model'
         pred_calories = predict_calories(model_name,results)
         output = 'Predicted calories burned {}'.format(pred_calories)
-        return jsonify(output)
+      #   return jsonify(output)
       #   vital = Vital(steps=steps, tra_dist=tra_dist, log_act_dist=log_act_dist, very_act_dist=very_act_dist)
       #   db.session.add(vital)
       #   db.session.commit()
       #   return redirect("/api/vitals", code=302)
 
-   #  return render_template("form.html")
+        return render_template("form.html", output=output)
 
 
 # create route that returns data for plotting
