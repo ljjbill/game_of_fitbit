@@ -39,7 +39,10 @@
                 <a class="nav-link" href="#"><ion-icon name="paper"></ion-icon> Form<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/ljjbill/game_of_fitbit" target="_blank"><ion-icon name="logo-github"></ion-icon> GitHub Repo</a>
+                <a class="nav-link" href="https://github.com/ljjbill/game_of_fitbit" target="_blank"><ion-icon name="logo-github"></ion-icon> GitHub Repo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.icloud.com/keynote/0Q3vnrAHg5Kq4gbVsNciH0ENg#GOF" target="_blank"><ion-icon name="easel"></ion-icon> Keynote</a>
             </li>
           </ul>
         </div>
@@ -99,7 +102,7 @@
                     <div class="collapse" id="t-distance">
                             <div class="card card-body alert-warning">
                                 <strong>Total Distance</strong><hr>Please enter the estimated total distance traveled in ONE day.
-                                <i>This is measured in miles</i>
+                                <i>This is measured in miles.</i>
                             </div>
                             <br>
                     </div>
@@ -120,7 +123,7 @@
                             <div class="card card-body alert-warning">
                                 <strong>Activities Distance</strong><hr>Please enter the estimated total distance traveled within logged activities. 
                                 Logged activities could be playing sports, hiking, etc.
-                                <i>This is measured in miles</i>
+                                <i>This is measured in miles.</i>
                             </div>
                             <br>
                     </div>
@@ -141,7 +144,7 @@
                             <div class="card card-body alert-warning">
                                 <strong>Very Active Distance</strong><hr>Please enter the estimated total distance traveled at high levels of activity.
                                 High levels of activity correlate with very elevated heart rate.
-                                <i>This is measured in miles</i>
+                                <i>This is measured in miles.</i>
                             </div>
                             <br>
                     </div>
@@ -162,7 +165,7 @@
                                 <div class="card card-body alert-warning">
                                     <strong>Moderate Active Distance</strong><hr>Please enter the estimated total distance traveled at moderate levels of activity.
                                     Moderate levels of activity correlate with moderately elevated heart rate.
-                                    <i>This is measured in miles</i>
+                                    <i>This is measured in miles.</i>
                                 </div>
                                 <br>
                         </div>
@@ -183,7 +186,7 @@
                             <div class="card card-body alert-warning">
                                 <strong>Light Active Distance</strong><hr>Please enter the estimated total distance traveled at light levels of activity.
                                 Light levels of activity correlate with lightly elevated heart rate.
-                                <i>This is measured in miles</i>
+                                <i>This is measured in miles.</i>
                             </div>
                             <br>
                     </div>
@@ -204,7 +207,7 @@
                             <div class="card card-body alert-warning">
                                 <strong>Sedentary Active Distance</strong><hr>Please enter the estimated total distance traveled at Sedentary levels of activity.
                                 Low levels of activity correlate with low elevated heart rate.
-                                <i>This is measured in miles</i>
+                                <i>This is measured in miles.</i>
                             </div>
                             <br>
                     </div>
@@ -225,7 +228,7 @@
                         <div class="card card-body alert-warning">
                             <strong>Very Active Minutes</strong><hr>Please enter the estimated total time spent at high levels of activity.
                             High levels of activity correlate with highly elevated heart rate.
-                            <i>This is measured in miles</i>
+                            <i>This is measured in minutes.</i>
                         </div>
                         <br>
                     </div>
@@ -237,27 +240,61 @@
                             <label for="inputFairActMin"><strong><ion-icon name="stopwatch"></ion-icon> Fairly Active Minutes</strong></label>
                         </div>
                         <p>
-                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#v-time" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#f-time" aria-expanded="false" aria-controls="collapseExample">
                                 <ion-icon name="help"></ion-icon>
                             </button>
                         </p>
                     </div>
-                    <div class="collapse" id="v-time">
+                    <div class="collapse" id="f-time">
                         <div class="card card-body alert-warning">
-                            <strong>Very Active Minutes</strong><hr>Please enter the estimated total time spent at high levels of activity.
-                            High levels of activity correlate with highly elevated heart rate.
-                            <i>This is measured in miles</i>
+                            <strong>Fairly Active Minutes</strong><hr>Please enter the estimated total time spent at Moderate levels of activity.
+                            Moderate levels of activity correlate with moderately elevated heart rate.
+                            <i>This is measured in minutes.</i>
                         </div>
                         <br>
                     </div>
                     <input type="text" class="form-control" id="inputFairActMin" name="FairActMin" placeholder="Fairly Active Minutes">
                 </div>
                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-auto">
                     <label for="inputLightActMin"><strong><ion-icon name="timer"></ion-icon> Lightly Active Minutes</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#li-time" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="li-time">
+                        <div class="card card-body alert-warning">
+                            <strong>Light Active Minutes</strong><hr>Please enter the estimated total time spent at light levels of activity.
+                            Light levels of activity correlate with lightly elevated heart rate.
+                            <i>This is measured in minutes.</i>
+                        </div>
+                        <br>
+                    </div>
                     <input type="text" class="form-control" id="inputLightActMin" name="LightActMin" placeholder="Light Active Minutes">
                 </div>
                 <div class="form-group">
+                    <div class="row">
+                        <div class="col-auto">
                     <label for="inputSedenMin"><strong><ion-icon name="time"></ion-icon> Sedentary Minutes</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#s-distance" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="s-distance">
+                        <div class="card card-body alert-warning">
+                            <strong>Sedentary Minutes</strong><hr>Please enter the estimated total time spent at Sedentary levels of activity.
+                            Low levels of activity correlate with low elevated heart rate.
+                            <i>This is measured in minutes.</i>
+                        </div>
+                        <br>
+                    </div>
                     <input type="text" class="form-control" id="inputSedenMin" name="SedenMin" placeholder="Sedentary Minutes">
                 </div>
               
