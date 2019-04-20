@@ -49,8 +49,10 @@
             
     </div>
     <div class="caption">
-        <div class="justify-content-center">
-        <h1 class="text-dark bg-white display-1 rounded-circle shadow-lg"><strong><ion-icon name="paper"></ion-icon> Vitals Form</strong></h1>            
+        <div class="container justify-content-center">
+            <div class="col">
+                <h1 class="text-dark bg-white display-1 rounded-pill shadow-lg"><strong><ion-icon name="paper"></ion-icon> Vitals Form</strong></h1>            
+            </div>
         </div>
     </div>
   <!------------------------------------------------------------------------------------------>
@@ -60,65 +62,203 @@
     <div class="container text-white">
         <div class="row justify-content-center">
             <div class="col-md-7  bg-dark rounded shadow-lg">
-            <h2 class="bg-dark text-white rounded text-center">Enter your Fitbit info below!</h2>
+                <br>
+            <h2 class="bg-dark text-white rounded-pill text-center shadow-lg border border-light">Enter your Fitbit info below!</h2>
+            <hr>
             <form method="POST" action="/send" role="form", name="petform">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col">
-                            <label for="inputSteps" data-toggle="tooltip" data-placement="top" title="Only for one day"><strong><ion-icon name="walk"></ion-icon> Total Steps  </strong></label>
+                        <div class="col-auto">
+                            <label for="inputSteps"><strong><ion-icon name="walk"></ion-icon> Total Steps</strong></label>
                         </div>
                         <p>
-                            <button class="btn btn-sm btn-dark text-white" type="button" data-toggle="collapse" data-target="#test" aria-expanded="false" aria-controls="collapseExample">
-                                <ion-icon name="help-circle-outline"></ion-icon>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#t-steps" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
                             </button>
                         </p>
                     </div>
-                    <div class="collapse" id="test">
+                    <div class="collapse" id="t-steps">
                             <div class="card card-body alert-warning">
                                 <strong>Total Steps</strong><hr>Please enter the estimated total number of steps taken in ONE day.
                             </div>
+                            <br>
                     </div>
                     <input type="text" class="form-control" id="inputSteps" name="userSteps" placeholder="Steps">
                 </div>
                 <div class="form-group">
-                <label for="inputTackerdist"><strong><ion-icon name="paper-plane"></ion-icon> Distance</strong></label>      
-                <input type="text" class="form-control" id="inputTackerdist" name="TrackerDistance" placeholder="Distance">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputTackerdist"><strong><ion-icon name="paper-plane"></ion-icon> Total Distance</strong></label>      
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#t-distance" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="t-distance">
+                            <div class="card card-body alert-warning">
+                                <strong>Total Distance</strong><hr>Please enter the estimated total distance traveled in ONE day.
+                                <i>This is measured in miles</i>
+                            </div>
+                            <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputTackerdist" name="TrackerDistance" placeholder="Distance">
                 </div>
                 <div class="form-group">
-                <label for="inputLoggedDist"><strong><ion-icon name="football"></ion-icon> Logged Activities Distance</strong></label>
-                <input type="text" class="form-control" id="inputLoggedDist" name="LogActDist" placeholder="Acitivity Distance">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputLoggedDist"><strong><ion-icon name="football"></ion-icon> Logged Activities Distance</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#l-distance" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="l-distance">
+                            <div class="card card-body alert-warning">
+                                <strong>Activities Distance</strong><hr>Please enter the estimated total distance traveled within logged activities. 
+                                Logged activities could be playing sports, hiking, etc.
+                                <i>This is measured in miles</i>
+                            </div>
+                            <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputLoggedDist" name="LogActDist" placeholder="Acitivity Distance">
                 </div>
                 <div class="form-group">
-                <label for="inputVeryActDist"><strong><ion-icon name="jet"></ion-icon> Very Active Distance</strong></label>
-                <input type="text" class="form-control" id="inputVeryActDist" name="VeryActDist" placeholder="Very Active">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputVeryActDist"><strong><ion-icon name="jet"></ion-icon> Very Active Distance</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#v-distance" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="v-distance">
+                            <div class="card card-body alert-warning">
+                                <strong>Very Active Distance</strong><hr>Please enter the estimated total distance traveled at high levels of activity.
+                                High levels of activity correlate with very elevated heart rate.
+                                <i>This is measured in miles</i>
+                            </div>
+                            <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputVeryActDist" name="VeryActDist" placeholder="Very Active">
                 </div>
                 <div class="form-group">
-                <label for="inputModDist"><strong><ion-icon name="send"></ion-icon> Moderate Active Distance</strong></label>
-                <input type="text" class="form-control" id="inputModDist" name="ModActDist" placeholder="Moderate Active">
+                        <div class="row">
+                            <div class="col-auto">
+                                <label for="inputModDist"><strong><ion-icon name="send"></ion-icon> Moderate Active Distance</strong></label>
+                            </div>
+                            <p>
+                                <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#m-distance" aria-expanded="false" aria-controls="collapseExample">
+                                    <ion-icon name="help"></ion-icon>
+                                </button>
+                            </p>
+                        </div>
+                        <div class="collapse" id="m-distance">
+                                <div class="card card-body alert-warning">
+                                    <strong>Moderate Active Distance</strong><hr>Please enter the estimated total distance traveled at moderate levels of activity.
+                                    Moderate levels of activity correlate with moderately elevated heart rate.
+                                    <i>This is measured in miles</i>
+                                </div>
+                                <br>
+                        </div>
+                    <input type="text" class="form-control" id="inputModDist" name="ModActDist" placeholder="Moderate Active">
                 </div>
                 <div class="form-group">
-                <label for="inputLightDist"><strong><ion-icon name="bicycle"></ion-icon> Light Active Distance</strong></label>
-                <input type="text" class="form-control" id="inputLightDist" name="LightActDist" placeholder="Light Active">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputLightDist"><strong><ion-icon name="bicycle"></ion-icon> Light Active Distance</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#li-distance" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="li-distance">
+                            <div class="card card-body alert-warning">
+                                <strong>Light Active Distance</strong><hr>Please enter the estimated total distance traveled at light levels of activity.
+                                Light levels of activity correlate with lightly elevated heart rate.
+                                <i>This is measured in miles</i>
+                            </div>
+                            <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputLightDist" name="LightActDist" placeholder="Light Active">
                 </div>
                 <div class="form-group">
-                <label for="inputSeden"><strong><ion-icon name="man"></ion-icon> Sedentary Active Distance</strong></label>
-                <input type="text" class="form-control" id="inputSeden" name="SedenActDist" placeholder="Sedentary Active">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputSeden"><strong><ion-icon name="man"></ion-icon> Sedentary Active Distance</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#s-distance" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="s-distance">
+                            <div class="card card-body alert-warning">
+                                <strong>Sedentary Active Distance</strong><hr>Please enter the estimated total distance traveled at Sedentary levels of activity.
+                                Low levels of activity correlate with low elevated heart rate.
+                                <i>This is measured in miles</i>
+                            </div>
+                            <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputSeden" name="SedenActDist" placeholder="Sedentary Active">
                 </div>
                 <div class="form-group">
-                <label for="inputVeryActMin"><strong><ion-icon name="speedometer"></ion-icon> Very Active Minutes</strong></label>
-                <input type="text" class="form-control" id="inputVeryActMin" name="VeryActMin" placeholder="Very Active Minutes">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputVeryActMin"><strong><ion-icon name="speedometer"></ion-icon> Very Active Minutes</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#v-time" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="v-time">
+                        <div class="card card-body alert-warning">
+                            <strong>Very Active Minutes</strong><hr>Please enter the estimated total time spent at high levels of activity.
+                            High levels of activity correlate with highly elevated heart rate.
+                            <i>This is measured in miles</i>
+                        </div>
+                        <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputVeryActMin" name="VeryActMin" placeholder="Very Active Minutes">
                 </div>
                 <div class="form-group">
-                <label for="inputFairActMin"><strong><ion-icon name="stopwatch"></ion-icon> Fairly Active Minutes</strong></label>
-                <input type="text" class="form-control" id="inputFairActMin" name="FairActMin" placeholder="Fairly Active Minutes">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="inputFairActMin"><strong><ion-icon name="stopwatch"></ion-icon> Fairly Active Minutes</strong></label>
+                        </div>
+                        <p>
+                            <button class="btn btn-sm btn-secondary text-white rounded-circle shadow-lg" type="button" data-toggle="collapse" data-target="#v-time" aria-expanded="false" aria-controls="collapseExample">
+                                <ion-icon name="help"></ion-icon>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="v-time">
+                        <div class="card card-body alert-warning">
+                            <strong>Very Active Minutes</strong><hr>Please enter the estimated total time spent at high levels of activity.
+                            High levels of activity correlate with highly elevated heart rate.
+                            <i>This is measured in miles</i>
+                        </div>
+                        <br>
+                    </div>
+                    <input type="text" class="form-control" id="inputFairActMin" name="FairActMin" placeholder="Fairly Active Minutes">
                 </div>
                 <div class="form-group">
-                <label for="inputLightActMin"><strong><ion-icon name="timer"></ion-icon> Lightly Active Minutes</strong></label>
-                <input type="text" class="form-control" id="inputLightActMin" name="LightActMin" placeholder="Light Active Minutes">
+                    <label for="inputLightActMin"><strong><ion-icon name="timer"></ion-icon> Lightly Active Minutes</strong></label>
+                    <input type="text" class="form-control" id="inputLightActMin" name="LightActMin" placeholder="Light Active Minutes">
                 </div>
                 <div class="form-group">
-                <label for="inputSedenMin"><strong><ion-icon name="time"></ion-icon> Sedentary Minutes</strong></label>
-                <input type="text" class="form-control" id="inputSedenMin" name="SedenMin" placeholder="Sedentary Minutes">
+                    <label for="inputSedenMin"><strong><ion-icon name="time"></ion-icon> Sedentary Minutes</strong></label>
+                    <input type="text" class="form-control" id="inputSedenMin" name="SedenMin" placeholder="Sedentary Minutes">
                 </div>
               
                 <button type="submit" value="submit" class="btn btn-light"><ion-icon name="play"></ion-icon> Analyse!</button>

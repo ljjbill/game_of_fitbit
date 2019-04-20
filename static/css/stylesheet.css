@@ -58,6 +58,9 @@
     /* filter: alpha(opacity=40); */
 }
 
+.border-3 {
+    border-width:10px !important;
+}
 
 /* width */
 ::-webkit-scrollbar {
