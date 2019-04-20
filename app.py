@@ -93,26 +93,6 @@ def open_form():
    """go to form page"""
    return render_template('form.html')
 
-# class Vital(db.Model):
-#     __tablename__ = 'vital'
-
-#     id = db.Column(db.Integer, primary_key=True)
-#     steps = db.Column(db.Integer)
-#     tra_dist = db.Column(db.Integer)
-#     log_act_dist = db.Column(db.Integer)
-#     very_act_dist = db.Column(db.Integer)
-
-#     def __repr__(self):
-#         return '<Vital %r>' % (self.name)
-
-
-# @app.before_first_request
-# def setup():
-#     # Recreate database each time for demo
-#     db.drop_all()
-#     db.create_all()
-
-
 # Query the database and send the jsonified results
 @app.route("/send", methods=["GET", "POST"])
 def send():
@@ -150,30 +130,6 @@ def send():
            output = 'Error: incorrect input!'
 
         return render_template("form.html", output=output)
-
-
-# create route that returns data for plotting
-# @app.route("/api/vitals")
-# def pals():
-   
-
-#     results = db.session.query(Vital.steps,Vital.tra_dist,Vital.log_act_dist, Vital.very_act_dist).first()
-
-#     steps = results[0]
-#     tra_dist = results[1]
-#     log_act_dist = results[2]
-#     very_act_dist = results[3]
-
-#     trace = {
-#         "steps": steps,
-#         "tra_dist": tra_dist,
-#         "log_act_dist": log_act_dist,
-#         "very_act_dist": very_act_dist
-#     }
-
-#     return jsonify(trace)
-
-
 
 
 if __name__ == "__main__":
