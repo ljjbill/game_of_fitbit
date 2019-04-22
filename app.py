@@ -130,7 +130,7 @@ def send():
            output = 'Error: incorrect input!'
 
         return render_template("form.html", output=round(pred_calories[0],2))
-
+# 
 
 if __name__ == "__main__":
     app.run(debug = True)
