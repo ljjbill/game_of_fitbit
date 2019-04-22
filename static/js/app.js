@@ -1,6 +1,6 @@
-function postResult() {
-    var url = "/api/viatals";
-    d3.json(url).then(function(response) {
-        console.log(response);
-    })
-}
+$(document).ready(function(){
+    var empt = document.getElementById('calouput').innerHTML;
+    if (empt == null || empt == "") {}
+    else if (empt == "Error: incorrect input!") {  $("#output2").modal('show');}
+    else {  $("#output").modal('show');} 
+});

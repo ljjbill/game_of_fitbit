@@ -93,6 +93,11 @@ def open_form():
    """go to form page"""
    return render_template('form.html')
 
+@app.route('/test')
+def open_test():
+   """go to form page"""
+   return render_template('Untitled.html')
+
 # Query the database and send the jsonified results
 @app.route("/send", methods=["GET", "POST"])
 def send():

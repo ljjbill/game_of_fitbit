@@ -17,6 +17,7 @@
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="https://d3js.org/d3.v2.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body>
@@ -103,11 +104,11 @@
         <div class="row justify-content-center">
             <div class="col-md-7  bg-dark rounded shadow-lg">
                 <br>
+            <p class="text-white text-center"><i>This is a placeholder for the form description/instructions.</i></p>
             <h2 class="bg-dark text-white rounded-pill text-center shadow-lg border border-light">
                 Enter your Fitbit info below!
             </h2>
-            <p class="text-white text-center"><i>Hello World!</i></p>
-            <hr>
+                        <hr>
             <form method="POST" action="/send" role="form", name="petform">
                 <div class="form-group">
                     <div class="row">
@@ -341,22 +342,7 @@
                 <button type="submit" value="submit" class="btn btn-light"><ion-icon name="play"></ion-icon> Analyse!</button>
             </form>
             <br><br>
-        
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    var empt = document.getElementById('calouput').innerHTML;
-                    if (empt == null || empt == "") {}
-                    else if (empt == "Error: incorrect input!") {  $("#output2").modal('show');}
-                    else {  $("#output").modal('show');} 
-                });
-            </script>
-            <!-- <script>
-              var heading = $("#output").modal('show');
-              setInterval(function() {
-                if (heading.style.display == "block") { heading.style.display = "none"; }
-                else if (heading.style.display == "none") { heading.style.display = "block"; }
-              }, 1000);
-            </script> -->
+            <script src="../static/js/app.js"></script>
             </div>
         </div>
     </div>
