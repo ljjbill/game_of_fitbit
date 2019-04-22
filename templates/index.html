@@ -48,18 +48,29 @@
         <li class="nav-item">
             <a class="nav-link" href="https://www.icloud.com/keynote/0Q3vnrAHg5Kq4gbVsNciH0ENg#GOF" target="_blank"><ion-icon name="easel"></ion-icon> Keynote</a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <ion-icon name="filing"></ion-icon> Machine Learning Notebooks
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
       </ul>
     </div>
   </nav>
   <!------------------------------------------------------------------------------------------>
   <!---------------------------------ALERT WARNING-------------------------------------------->
   <!------------------------------------------------------------------------------------------>
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <strong>Welcome!</strong> This Webpage is under maintenance. Updates Coming soon!
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
+  </div> -->
 
   <!------------------------------------------------------------------------------------------>
   <!---------------------------------Left Column---------------------------------------------->
@@ -109,15 +120,28 @@
   <!---------------------------------RIGHT COLUMN--------------------------------------------->
   <!------------------------------------------------------------------------------------------>
         <div class="col-sm-8">
-          <h2>Project Goals</h2>
-          <h5>April 2019</h5>
-          <!--https://mir-s3-cdn-cf.behance.net/project_modules/disp/f847f340400159.577dcf3411820.gif-->
-          <img src="https://mymodernmet.com/wp/wp-content/uploads/archive/qL1dqxUVlLJc1zFLK8Uk_7dailymoves3.gif" alt="lifting weights" class="img-fluid img-thumbnail rounded" id="lifting">
-          <p>Some text..</p>
-          <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <img src="https://mymodernmet.com/wp/wp-content/uploads/archive/qL1dqxUVlLJc1zFLK8Uk_7dailymoves3.gif" alt="lifting weights" class="img-fluid img-thumbnail rounded" id="lifting">
+          <h2>Project Description</h2>
+          <p><strong>Goal: </strong><i>To create a full stack application that would intake Fitbit or fitness data and pass it through a machine learning model to make predictions.</i></p>
+          <p>
+            First, we searched for usefull data. 
+            Fitbit user data is not open to the public therefore we decided to use crowdsourced data found <a href="https://zenodo.org/record/53894#.XL4eY-hKg70" target="_blank">here</a>. 
+          </p>
+          <p>
+            Once we took a look at the data we decided to split up responsibilities. 
+            Two of our members would work on developing our machine learning models while the rest would focus on building an application.
+          </p>
+          <p>
+            The first thing we created was a Flask application that would serve our project. 
+            Then we quickly developed an html front-end with bootstrap components that would host our application and project description. 
+            We wanted the home page to maininly focus on the project description and team roles and credits. 
+            On the other hand our form tab would display our projects demo and capabilities. 
+            On the front end we focused heavily on the user experience hence the multiple features involved through out the entire application.
+          </p>
+          <p>In the end we added the machine learning models to our flask application.</p>
+          <p><i>For a deeper dive into our application please be sure to check out our project repo, our keynote presentation and our machine learning model notebooks.</i></p>
           <br>
-          <h2>Description</h2>
-          <p>Some text..</p>
+          <h3>Technology Used</h3>
           <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
       </div>
