@@ -125,11 +125,12 @@ def send():
             ])
          model_name = 'calorie_predictor.model'
          pred_calories = predict_calories(model_name,results)
-         output = '{}'.format(pred_calories)
+         # output = '{}'.format(pred_calories)
+         output = round(pred_calories[0],2)
         except:
            output = 'Error: incorrect input!'
 
-        return render_template("form.html", output=round(pred_calories[0],2))
+        return render_template("form.html", output=output)
 # 
 
 if __name__ == "__main__":
