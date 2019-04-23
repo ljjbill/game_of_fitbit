@@ -13,6 +13,7 @@ from flask_cors import CORS
 #################################################
 # IMPORT DEPENDENCIES TO ACCESS DB THROUGH SQLALCHEMY FOR DATA INGRESS
 #################################################
+"""
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -23,7 +24,7 @@ from sqlalchemy import (
    extract)
 
 from flask_sqlalchemy import SQLAlchemy
-
+"""
 #################################################
 # IMPORT DEPENDENCIES FOR OTHER CODE WITHIN ROUTES
 #################################################
@@ -53,9 +54,10 @@ CORS(app)
 
 
 # Database connection
+"""
 app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///db/vital.sqlite"
 db = SQLAlchemy(app)
-"""
+
 # reflect an existing database into a new model
 Base = automap_base()
 #reflect the tables
@@ -65,7 +67,7 @@ Base.prepare(db.engine, reflect=True)
 # Save references to each table
 """study = Base.classes.study""" # EXAMPLE
 
-def predict_calories(model_name, features):
+def xgboost_model(model_name, features):
     # model_name: name of the trained xgboost model, e.g.: 'calorie_predictor.model'
     # features: 1 x 11 features as numpy array, e.g.: np.array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]) where the numbers are feature values
 
@@ -81,6 +83,30 @@ def predict_calories(model_name, features):
     feat = xgb.DMatrix(features)
 
     return mod.predict(feat)
+
+def svm_model(model_name, scale_name, features):
+    # model_name: name of the trained Gradient Boosted Regressor model, e.g.: 'calorie_predictor_GBR.model'
+    # scale_name: name of file containing variable to scale features
+    # features: 1 x 11 features as numpy array, e.g.: np.array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]) where the numbers are feature values
+
+    # Loads the model saved in model_name. Runs the model using given feature vector. Returns the predicted calories.
+
+    # loading model
+    with open(model_name, 'rb') as f:
+        calorie_model = pickle.load(f)
+
+    # loading scaler
+    with open(scale_name, 'rb') as f:
+        X_scaler = pickle.load(f)
+
+    assert np.shape(features)[0] == 11 # make sure number of features is correct
+
+    features = features[np.newaxis, :]
+    features = X_scaler.transform(features)
+
+
+    return calorie_model.predict(features)
+
 
 # creates a route for the flask front end
 @app.route('/')
@@ -98,6 +124,10 @@ def open_test():
    """go to form page"""
    return render_template('Untitled.html')
 
+def unpack_data(d):
+   cols_list = ['list', 'of', 'col', 'names']
+   return np.array([float(d[x][0]) for x in cols_list])
+
 # Query the database and send the jsonified results
 @app.route("/send", methods=["GET", "POST"])
 def send():
@@ -113,8 +143,11 @@ def send():
         fair_act_min = request.form["FairActMin"]
         light_act_min = request.form["LightActMin"]
         seden_act_min = request.form["SedenMin"]
-        
+        print(request.form.get("chosenModel", None))
+        d=request.form.to_dict(flat=False)
         try:
+         #   if request.form.get("chosenModel", None) = "Model 1"
+
          #TODO: Refactor into a functions
          results = np.array([
             float(steps),
@@ -130,7 +163,7 @@ def send():
             float(seden_act_min)
             ])
          model_name = 'calorie_predictor.model'
-         pred_calories = predict_calories(model_name,results)
+         pred_calories = xgboost_model(model_name,results)
          # output = '{}'.format(pred_calories)
          output = round(pred_calories[0],2)
         except:
