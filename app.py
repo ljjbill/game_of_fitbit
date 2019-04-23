@@ -115,18 +115,19 @@ def send():
         seden_act_min = request.form["SedenMin"]
         
         try:
+         #TODO: Refactor into a functions
          results = np.array([
-            int(steps),
-            int(tra_dist),
-            int(log_act_dist),
-            int(very_act_dist),
-            int(mod_act_dist),
-            int(light_act_dist),
-            int(seden_act_dist),
-            int(very_act_min),
-            int(fair_act_min),
-            int(light_act_min),
-            int(seden_act_min)
+            float(steps),
+            float(tra_dist),
+            float(log_act_dist),
+            float(very_act_dist),
+            float(mod_act_dist),
+            float(light_act_dist),
+            float(seden_act_dist),
+            float(very_act_min),
+            float(fair_act_min),
+            float(light_act_min),
+            float(seden_act_min)
             ])
          model_name = 'calorie_predictor.model'
          pred_calories = predict_calories(model_name,results)
