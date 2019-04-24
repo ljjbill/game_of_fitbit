@@ -121,10 +121,10 @@ def open_form():
    """go to form page"""
    return render_template('form.html')
 
-@app.route('/test')
-def open_test():
+@app.route('/fitbit_L_R_E')
+def open_fitbit_L_R_E():
    """go to form page"""
-   return render_template('Untitled.html')
+   return render_template('fitbit_Lasso_Ridge_ElasticNet.html')
 
 def unpack_data(d):
    cols_list = ['list', 'of', 'col', 'names']
