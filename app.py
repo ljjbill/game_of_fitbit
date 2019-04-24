@@ -123,8 +123,13 @@ def open_form():
 
 @app.route('/fitbit_L_R_E')
 def open_fitbit_L_R_E():
-   """go to form page"""
+   """go to fitbit_L_R_E page"""
    return render_template('fitbit_Lasso_Ridge_ElasticNet.html')
+
+@app.route('/healthdata_gridsearch')
+def open_healthdata_gridsearch():
+   """got to healthdata_gridsearch page"""
+   return render_template('health_data_grid_search.html')
 
 def unpack_data(d):
    cols_list = ['list', 'of', 'col', 'names']
