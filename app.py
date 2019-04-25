@@ -128,8 +128,18 @@ def open_fitbit_L_R_E():
 
 @app.route('/healthdata_gridsearch')
 def open_healthdata_gridsearch():
-   """got to healthdata_gridsearch page"""
+   """got to health data grid search page"""
    return render_template('health_data_grid_search.html')
+
+@app.route('/healthdata_svm')
+def open_healthdata_svm():
+   """got to health data svm page"""
+   return render_template('SVM_for_healthData.html')
+
+@app.route('/healthdata_lre')
+def open_healthdata_lre():
+   """got to health data L.R.E. page"""
+   return render_template('health_data_L_R_E.html')
 
 def unpack_data(d):
    cols_list = ['list', 'of', 'col', 'names']
