@@ -1,4 +1,6 @@
-
+.body{
+    background-color: grey;
+}
 .parallax {
     background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Fitness-Wallpaper-1080p-Hd-PIC-WPE006495.jpg");
     min-height: 400px; 
