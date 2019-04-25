@@ -28,12 +28,9 @@ from flask_sqlalchemy import SQLAlchemy
 #################################################
 # IMPORT DEPENDENCIES FOR OTHER CODE WITHIN ROUTES
 #################################################
-from pandas.util import hash_pandas_object
 import pandas as pd
 import json
 import requests
-import datetime
-from datetime import timedelta
 
 #################################################
 # IMPORT DEPENDENCIES FOR Machine Learning
