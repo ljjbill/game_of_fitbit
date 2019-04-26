@@ -146,6 +146,22 @@ def open_fitbit_L_R_E():
    """go to fitbit_L_R_E page"""
    return render_template('fitbit_Lasso_Ridge_ElasticNet.html')
 
+@app.route('/fitbit_xboost')
+def open_fitbit_xboost():
+   """got to fitbit data xboost page"""
+   return render_template('fitbit_xboost.html')
+
+@app.route('/fitbit_svm_grid')
+def open_fitbit_svm_grid():
+   """got to fitbit data SVM page"""
+   return render_template('fitbit_svm_grid.html')
+
+@app.route('/fitbit_gbr_grid')
+def open_fitbit_gbr_grid():
+   """got to fitbit data GBR page"""
+   return render_template('fitbit_gbr_grid.html')
+   
+
 @app.route('/healthdata_gridsearch')
 def open_healthdata_gridsearch():
    """got to health data grid search page"""
